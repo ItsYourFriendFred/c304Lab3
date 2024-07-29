@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">fredwong_COMP304Lab3_ex1</string>
+    <string name="login">Log In</string>
+    <string name="logo_content_description">Test Tracker</string>
+</resources>
