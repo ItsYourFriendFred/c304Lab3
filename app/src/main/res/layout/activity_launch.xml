@@ -15,12 +15,12 @@
         android:src="@drawable/logo" />
 
     <Button
-        android:id="@+id/btnSignIn"
+        android:id="@+id/buttonToLogIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:text="@string/login"
+        android:text="@string/log_in"
         android:textSize="24sp" />
 
 </LinearLayout>

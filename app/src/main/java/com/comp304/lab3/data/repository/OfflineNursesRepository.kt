@@ -14,4 +14,5 @@ class OfflineNursesRepository(private val nurseDao: NurseDao): NursesRepository 
     override suspend fun deleteNurse(nurse: Nurse) = nurseDao.delete(nurse)
 
     override suspend fun updateNurse(nurse: Nurse) = nurseDao.update(nurse)
+
 }

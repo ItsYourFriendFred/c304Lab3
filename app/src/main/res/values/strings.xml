@@ -1,5 +1,28 @@
 <resources>
-    <string name="app_name">fredwong_COMP304Lab3_ex1</string>
-    <string name="login">Log In</string>
-    <string name="logo_content_description">Test Tracker</string>
+    <string name="app_name">TestTracker</string>
+    <string name="log_in">Log In</string>
+    <string name="logo_content_description">TestTracker</string>
+    <string name="username">Username</string>
+    <string name="login_page_title">Log in to TestTracker</string>
+    <string name="password">Password</string>
+    <string name="login_image_content_description">Splash image for login screen</string>
+    <string name="add_patient">Icon for adding a patient</string>
+    <string name="main_title">Patients</string>
+    <string name="menu_view_test">View tests</string>
+    <string name="menu_add_test">Add test</string>
+    <string name="menu_add_patient">Add patient</string>
+    <string name="save">Save</string>
+    <string name="room_number">Room #</string>
+    <string name="department">Department</string>
+    <string name="nurse_id">Nurse ID</string>
+    <string name="hint_lastname">Enter last name</string>
+    <string name="last_name">Last Name</string>
+    <string name="hint_firstname">Enter first name</string>
+    <string name="first_name">First Name</string>
+    <string name="title_patient_activity">Patient Information</string>
+    <string name="text_first_name_preview">Fred</string>
+    <string name="text_last_name_preview">Wong</string>
+    <string name="text_room_number_preview">Room 100</string>
+    <string name="main_app_bar_nurse_id_text">" Nurse ID: "</string>
+    <string name="recyclerView_room_label">Room: %1$s</string>
 </resources>

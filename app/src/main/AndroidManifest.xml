@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:name=".HospitalApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -11,10 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Fredwong_COMP304Lab3_ex1"
-        tools:targetApi="31" >
+        tools:targetApi="31">
+        <activity
+            android:name=".views.PatientActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.LogInActivity"
+            android:exported="false" />
         <activity
             android:name=".views.LaunchActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,8 +30,7 @@
         </activity>
         <activity
             android:name=".views.MainActivity"
-            android:exported="false" >
-        </activity>
+            android:exported="false" />
     </application>
 
 </manifest>

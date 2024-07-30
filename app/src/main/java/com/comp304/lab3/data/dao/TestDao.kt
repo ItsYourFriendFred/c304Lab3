@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
+import com.comp304.lab3.data.model.Nurse
 import com.comp304.lab3.data.model.Test
 import kotlinx.coroutines.flow.Flow
 
@@ -19,6 +20,9 @@ interface TestDao {
 
     @Delete
     suspend fun delete(test: Test)
+
+    @Query("SELECT * from Tests WHERE testId = :id")
+    fun getTest(id: Int): Flow<Test>
 
     @Query("select * from Tests order by testId asc")
     fun getAllTests(): Flow<List<Test>>
