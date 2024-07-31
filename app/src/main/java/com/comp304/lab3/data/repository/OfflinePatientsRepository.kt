@@ -12,8 +12,8 @@ class OfflinePatientsRepository(private val patientDao: PatientDao): PatientsRep
 
     override fun getPatient(id: Int): Flow<Patient> = patientDao.getPatientAsFlow(id)
 
-    override suspend fun insertTest(patient: Patient) = patientDao.insert(patient)
+    override suspend fun insertPatient(patient: Patient) = patientDao.insert(patient)
 
-    override suspend fun deleteTest(patient: Patient) = patientDao.delete(patient)
-    override suspend fun updateTest(patient: Patient) = patientDao.update(patient)
+    override suspend fun deletePatient(patient: Patient) = patientDao.delete(patient)
+    override suspend fun updatePatient(patient: Patient) = patientDao.update(patient)
 }

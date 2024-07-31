@@ -24,5 +24,65 @@
     <string name="text_last_name_preview">Wong</string>
     <string name="text_room_number_preview">Room 100</string>
     <string name="main_app_bar_nurse_id_text">" Nurse ID: "</string>
+    <string name="main_app_bar_patient_id_text">" Patient ID: "</string>
     <string name="recyclerView_room_label">Room: %1$s</string>
+    <string name="edit">Edit</string>
+    <string name="view_test">View Tests</string>
+    <string name="main_activity_title">Tests</string>
+    <string name="text_nurse_id_preview">Nurse ID: 1</string>
+    <string name="text_test_id_preview">Test ID: 1</string>
+    <string name="text_blood_pressure_preview">Blood Pressure: 164/105</string>
+    <string name="text_temperature_preview">Temperature: 37.00°C</string>
+    <string name="text_FPG_preview">Blood Glucose: 130.1 mg/dL</string>
+    <string name="text_rbc_preview">"Red Blood Count: 5.1"</string>
+    <string name="text_heart_rate_preview">Heart Rate: 82</string>
+    <string name="add_test">Icon for adding a test</string>
+    <string name="test_title">Tests</string>
+    <string name="recyclerView_test_label">Test ID: %1$s</string>
+    <string name="recyclerView_nurse_label">Nurse ID: %1$s</string>
+    <string name="recyclerView_blood_pressure_label">Blood Pressure: %1$s/%2$s</string>
+    <string name="recyclerView_temperature_label">Temperature: %1$s°C</string>
+    <string name="recyclerView_heart_rate_label">Heart Rate: %1$s</string>
+    <string name="recyclerView_blood_count_label">Red Blood Count: %1$s</string>
+    <string name="recyclerView_glucose_label">Blood Glucose: %1$smg/dL</string>
+    <string name="test_activity_title">Test Entry</string>
+    <string name="text_bph_label">"Blood Pressure (Systolic, BPH; mmHg): "</string>
+    <string name="hint_bpl">Enter BPH (e.g., 100)</string>
+    <string name="text_bpl_label">"Blood Pressure (Diastolic, BPL; mmHg): "</string>
+    <string name="hint_bph">Enter BPH (e.g., 150)</string>
+    <string name="text_temperature_label">"Temperature (°C): "</string>
+    <string name="hint_temperature">Enter temperature (°C)</string>
+    <string name="text_heart_rate_label">"Heart Rate (BPM): "</string>
+    <string name="hint_heart_rate">"Enter heart rate (e.g., 80)"</string>
+    <string name="text_rbc_label">Red Blood Cell Count (million cells/mcL):</string>
+    <string name="hint_rbc">Enter RBC (e.g., 5.1)</string>
+    <string name="text_fpg_label">"Blood Glucose (FPG; mg/dL):"</string>
+    <string name="hint_fpg">Enter FPG (e.g., 90)</string>
+    <string name="empty_tests_list_label">No tests have been added yet. Add a test using the action button or through the app bar menu.</string>
+    <string name="empty_tests_list_preview">This text shows when there is an empty list</string>
+
+    <string-array name="department_array">
+        <item>Cardiology</item>
+        <item>Emergency Medicine</item>
+        <item>General Surgery</item>
+        <item>Internal Medicine</item>
+        <item>OB/GYN</item>
+        <item>Oncology</item>
+        <item>Pediatrics</item>
+        <item>Psychiatry</item>
+        <item>Radiology</item>
+    </string-array>
+    <string-array name="room_array">
+        <item>100</item>
+        <item>101</item>
+        <item>102</item>
+        <item>103</item>
+        <item>104</item>
+        <item>105</item>
+        <item>106</item>
+        <item>107</item>
+        <item>108</item>
+        <item>109</item>
+        <item>110</item>
+    </string-array>
 </resources>

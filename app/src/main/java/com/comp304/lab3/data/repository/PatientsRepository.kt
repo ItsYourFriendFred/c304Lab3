@@ -7,8 +7,8 @@ interface PatientsRepository {
     fun getAllPatientsStream(): Flow<List<Patient>>
     fun getAllPatientsByNurseStream(nurseId: Int): Flow<List<Patient>>
     fun getPatient(id: Int): Flow<Patient>
-    suspend fun insertTest(patient: Patient)
-    suspend fun deleteTest(patient: Patient)
-    suspend fun updateTest(patient: Patient)
+    suspend fun insertPatient(patient: Patient)
+    suspend fun deletePatient(patient: Patient)
+    suspend fun updatePatient(patient: Patient)
 
 }

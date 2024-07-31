@@ -21,6 +21,23 @@ object AppViewModelProvider {
         initializer {
             MainViewModel(hospitalApplication().container.patientsRepository)
         }
+        // Initializer for PatientEntryViewModel
+        initializer {
+            PatientEntryViewModel(hospitalApplication().container.patientsRepository)
+        }
+        // Initializer for PatientEditViewModel
+        initializer {
+            PatientEditViewModel(this.createSavedStateHandle(),
+                hospitalApplication().container.patientsRepository)
+        }
+        // Initializer for TestViewModel
+        initializer {
+            ViewTestInfoViewModel(hospitalApplication().container.testsRepository)
+        }
+        // Initializer for TestEntryViewModel
+        initializer {
+            TestEntryViewModel(hospitalApplication().container.testsRepository)
+        }
     }
 }
 

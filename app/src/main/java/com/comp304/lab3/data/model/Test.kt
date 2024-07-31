@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "Tests")
 data class Test(
     @PrimaryKey(autoGenerate = true)
-    val testId: Int = 0,
+    val testId: Int = 1,
     val nurseId: Int,
     val patientId: Int,
     val BPL: Double,  // Presumably, blood pressure (diastolic, lower number)

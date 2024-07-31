@@ -1,7 +1,6 @@
 package com.comp304.lab3.adapters
 
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.view.View
@@ -12,11 +11,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.comp304.lab3.R
 import com.comp304.lab3.data.model.Patient
 import com.comp304.lab3.util.Constants
-import com.comp304.lab3.views.PatientActivity
 
 internal class PatientRecyclerViewAdapter(
     private val context: Context,
-    private val sharedPreferences: SharedPreferences
+    private val sharedPreferences: SharedPreferences,
+    private val onItemClick: (Patient) -> Unit
 ) : RecyclerView.Adapter<PatientRecyclerViewAdapter.MyViewHolder>() {
 
     private var patients: List<Patient> = listOf()
@@ -39,14 +38,7 @@ internal class PatientRecyclerViewAdapter(
             ))
 
             cardView.setOnClickListener {
-                val intent = Intent(context, PatientActivity::class.java).apply {
-                    putExtra("EXTRA_PATIENT_ID", patient.patientId)
-                    putExtra("EXTRA_FIRST_NAME", patient.firstname)
-                    putExtra("EXTRA_LAST_NAME", patient.lastname)
-                    putExtra("EXTRA_ROOM_NUMBER", patient.room)
-                    putExtra("EXTRA_NURSE_ID", patient.nurseId)
-                }
-                context.startActivity(intent)
+                onItemClick(patient)
             }
         }
     }
@@ -63,7 +55,8 @@ internal class PatientRecyclerViewAdapter(
         holder.bind(patient)
     }
 
-    fun submitList(newPatients: List<Patient>) {
+    // Update the adapter's data source with the latest Patients and refresh the RecyclerView to reflect latest data
+    fun updateList(newPatients: List<Patient>) {
         patients = newPatients
         notifyDataSetChanged()
     }

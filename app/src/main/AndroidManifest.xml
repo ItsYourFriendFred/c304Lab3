@@ -14,6 +14,15 @@
         android:theme="@style/Theme.Fredwong_COMP304Lab3_ex1"
         tools:targetApi="31">
         <activity
+            android:name=".views.TestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.ViewTestInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.UpdateInfoActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.PatientActivity"
             android:exported="false" />
         <activity

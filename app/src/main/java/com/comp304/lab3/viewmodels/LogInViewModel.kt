@@ -20,6 +20,10 @@ class LogInViewModel(private val nursesRepository: NursesRepository) : ViewModel
     var logInUiState by mutableStateOf(LogInUiState())
         private set
 
+    /**
+     * Updates the [LogInUiState] with the value provided in the argument.
+     * Also triggers a validation for input values.
+     */
     fun updateUiState(logInDetails: NurseDetails) {
         logInUiState =
             LogInUiState(logInDetails = logInDetails,
