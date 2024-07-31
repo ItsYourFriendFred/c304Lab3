@@ -56,6 +56,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.title = newTitle
 
         // Setting up the RecyclerView using the RecyclerViewAdapter
+        // Relevant information is stored using intents when the user clicks on any existing patient card in the View
         recyclerView = findViewById(R.id.recyclerViewPatients)
         patientAdapter = PatientRecyclerViewAdapter(this, sharedPreferences) { patient ->
             val intent = Intent(this, UpdateInfoActivity::class.java).apply {
@@ -79,6 +80,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        // Setting the floating action button to proceed to the Patient activity for adding a patient
         val addPatientButton: FloatingActionButton = findViewById(R.id.fabAddPatient)
         addPatientButton.setOnClickListener {
             val intent = Intent(this, PatientActivity::class.java)

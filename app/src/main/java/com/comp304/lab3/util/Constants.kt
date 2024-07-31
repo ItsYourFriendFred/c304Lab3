@@ -1,5 +1,6 @@
 package com.comp304.lab3.util
 
+// Constants for frequent references in application
 object Constants {
     const val SHARED_PREF_NAME = "NursePref"
     const val SHARED_PREF_KEY = "NurseID"
@@ -9,5 +10,4 @@ object Constants {
     const val PATIENT_DEPARTMENT_KEY = "EXTRA_DEPARTMENT"
     const val PATIENT_NURSE_ID_KEY = "EXTRA_NURSE_ID"
     const val PATIENT_ROOM_KEY = "EXTRA_ROOM_NUMBER"
-    const val PATIENT_DETAILS_KEY = "EXTRA_PATIENT_DETAILS"
 }

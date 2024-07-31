@@ -31,6 +31,7 @@ class ViewTestInfoViewModel(private val testsRepository: TestsRepository) : View
             initialValue = TestUiState()
         )
 
+    // Setting the Patient ID automatically for when a new test is to be added
     fun setPatientId(patientId: Int) {
         _patientId.value = patientId
     }

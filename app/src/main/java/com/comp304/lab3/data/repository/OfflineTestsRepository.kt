@@ -4,6 +4,7 @@ import com.comp304.lab3.data.dao.TestDao
 import com.comp304.lab3.data.model.Test
 import kotlinx.coroutines.flow.Flow
 
+// Offline repository used, implementing the corresponding repository interface, since database is created from asset instead of an actual live database
 class OfflineTestsRepository(private val testDao: TestDao): TestsRepository {
     override fun getAllTestsStream(): Flow<List<Test>> = testDao.getAllTests()
 

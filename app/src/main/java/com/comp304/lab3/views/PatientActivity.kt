@@ -46,20 +46,21 @@ class PatientActivity : AppCompatActivity() {
 
         setupSpinners()
 
+        // Get the stored nurse ID from the Main activity that was stored via shared preferences
         val nurseId = intent.getIntExtra(PATIENT_NURSE_ID_KEY, currentNurseId)
         val editTextNurseId: EditText = findViewById(R.id.editTextNurseId)
         val buttonAdd: Button = findViewById(R.id.buttonAddPatientInfo)
 
+        // Automatically set the Nurse ID editText in the form to the user/operating Nurse's ID
         editTextNurseId.setText(nurseId.toString())
 
         buttonAdd.setOnClickListener {
             savePatientInfo()
         }
 
-
-
     }
 
+    // Populate the spinners with their relevant options
     private fun setupSpinners() {
         val departments = resources.getStringArray(R.array.department_array)
         val rooms = resources.getStringArray(R.array.room_array)
@@ -73,6 +74,7 @@ class PatientActivity : AppCompatActivity() {
         findViewById<Spinner>(R.id.spinnerRoomNumber).adapter = roomAdapter
     }
 
+    // Save changes to patient information
     private fun savePatientInfo() {
         val updatedFirstName = findViewById<EditText>(R.id.editTextFirstName).text.toString()
         val updatedLastName = findViewById<EditText>(R.id.editTextLastName).text.toString()
@@ -80,6 +82,7 @@ class PatientActivity : AppCompatActivity() {
         val selectedDepartment = findViewById<Spinner>(R.id.spinnerDepartment).selectedItem.toString()
         val selectedRoomNumber = findViewById<Spinner>(R.id.spinnerRoomNumber).selectedItem.toString().toInt()
 
+        // Creating a PatientDetails object from the filled in form fields
         val patientDetails = PatientDetails(
             firstname = updatedFirstName,
             lastname = updatedLastName,
@@ -95,6 +98,7 @@ class PatientActivity : AppCompatActivity() {
             return
         }
 
+        // Also, navigate to previous Main activity if successful in saving patient info
         lifecycleScope.launch {
             try {
                 viewModel.savePatient()

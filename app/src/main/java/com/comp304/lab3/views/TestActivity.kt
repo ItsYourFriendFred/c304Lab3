@@ -46,16 +46,12 @@ class TestActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        // Obtaining references to UI components
         val nurseId = intent.getIntExtra(Constants.PATIENT_NURSE_ID_KEY, currentNurseId)
         val editTextNurseId: EditText = findViewById(R.id.editTextNurseId)
-        val editTextBPH: EditText = findViewById(R.id.editTextBPH)
-        val editTextBPL: EditText = findViewById(R.id.editTextBPL)
-        val editTextTemperature: EditText = findViewById(R.id.editTextTemperature)
-        val editTextHeartRate: EditText = findViewById(R.id.editTextHeartRate)
-        val editTextRbcCount: EditText = findViewById(R.id.editTextRbcCount)
-        val editTextFPG: EditText = findViewById(R.id.editTextFPG)
         val buttonSave: Button = findViewById(R.id.buttonSave)
 
+        // Setting the text of the nurse ID automatically for filling and sensibility (that the nurse operating is the one adding a test)
         editTextNurseId.setText(nurseId.toString())
 
         buttonSave.setOnClickListener {
@@ -64,6 +60,7 @@ class TestActivity : AppCompatActivity() {
 
     }
 
+    // Saving (adding) a new test's information
     private fun saveTextInfo(patientId: Int) {
         val updatedNurseId = findViewById<EditText>(R.id.editTextNurseId).text.toString().toInt()
         val updatedPatientId = patientId
@@ -74,6 +71,7 @@ class TestActivity : AppCompatActivity() {
         val updatedRbcCount = findViewById<EditText>(R.id.editTextRbcCount).text.toString().toDouble()
         val updatedFPG = findViewById<EditText>(R.id.editTextFPG).text.toString().toDouble()
 
+        // Creating a TestDetails object from the filled in form fields
         val testDetails = TestDetails(
             patientId = updatedPatientId,
             nurseId = updatedNurseId,
@@ -85,6 +83,7 @@ class TestActivity : AppCompatActivity() {
             FPG = updatedFPG
         )
 
+        // Validation of the form
         viewModel.updateUiState(testDetails)
 
         if (!viewModel.testEntryUiState.isEntryValid) {
@@ -92,6 +91,7 @@ class TestActivity : AppCompatActivity() {
             return
         }
 
+        // Also, navigate back to the ViewTestInfo activity upon successful test insertion
         lifecycleScope.launch {
             try {
                 viewModel.saveTest()

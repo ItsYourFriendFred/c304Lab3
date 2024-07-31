@@ -49,13 +49,13 @@ class LogInActivity : AppCompatActivity() {
                 logInViewModel.logInUiState.logInDetails.copy(nurseId = it.toString().toIntOrNull() ?: 0)
             )
         }
-
         passwordEditText.addTextChangedListener {
             logInViewModel.updateUiState(
                 logInViewModel.logInUiState.logInDetails.copy(password = it.toString())
             )
         }
 
+        // Set listener logic for logging in, accounting for issues in input, incorrect username & password, or issues with database acess
         logInButton.setOnClickListener {
             logInViewModel.logIn(
                 onLoginSuccess = { nurse ->

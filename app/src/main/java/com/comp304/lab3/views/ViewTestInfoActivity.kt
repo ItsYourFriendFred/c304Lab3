@@ -59,15 +59,20 @@ class ViewTestInfoActivity : AppCompatActivity() {
             return
         }
 
+        // Add Patient ID to the app bar for context
         val newTitle = supportActionBar?.title.toString() + getString(R.string.main_app_bar_patient_id_text) + patientId
         supportActionBar?.title = newTitle
 
+        // Set up the recycler
         recyclerView = findViewById(R.id.recyclerViewTests)
-        noTestsTextView = findViewById(R.id.textViewNoTests)
         testAdapter = TestRecyclerViewAdapter(this, sharedPreferences)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = testAdapter
 
+        // TextView used to display a message if the patient doesn't have any tests yet
+        noTestsTextView = findViewById(R.id.textViewNoTests)
+
+        // Set Patient ID to a reference for adding tests
         viewTestInfoViewModel.setPatientId(patientId)
 
         // Retrieving the Tests through the ViewModel
@@ -78,6 +83,7 @@ class ViewTestInfoActivity : AppCompatActivity() {
             }
         }
 
+        // Set button to proceed to test activity for adding tests
         val addTestButton: FloatingActionButton = findViewById(R.id.fabAddTest)
         addTestButton.setOnClickListener {
             val intent = Intent(this, TestActivity::class.java).apply {
@@ -87,6 +93,8 @@ class ViewTestInfoActivity : AppCompatActivity() {
         }
     }
 
+    // Update the UI state setting the visibility of a placeholder message if the list of tests is empty, as well as the list's visibility if it's empty
+    // Based on UIState to get the latest tests
     private fun updateUI(uiState: TestUiState) {
         Log.d("ViewTestInfoActivity", "Updating UI with tests: ${uiState.testsList}")
         if (uiState.testsList.isEmpty()) {

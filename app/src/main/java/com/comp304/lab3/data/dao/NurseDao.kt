@@ -20,11 +20,8 @@ interface NurseDao {
     @Delete
     suspend fun delete(nurse: Nurse)
 
-    @Query("select * from Nurses WHERE nurseId = :id and password = :password")
-    fun getNurseAsNurse(id: Int, password: String): Nurse
-
     @Query("SELECT * from Nurses WHERE nurseId = :id and password = :password")
-    fun getNurseAsFlow(id: Int, password: String): Flow<Nurse>
+    fun getNurse(id: Int, password: String): Flow<Nurse>
 
     @Query("SELECT * from Nurses ORDER BY firstname ASC")
     fun getAllNurses(): Flow<List<Nurse>>

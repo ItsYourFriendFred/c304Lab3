@@ -26,6 +26,7 @@ class LaunchActivity : AppCompatActivity() {
         // Hide action bar
         supportActionBar?.hide()
 
+        // Navigate to the login activity
         val loginButton: Button = findViewById(R.id.buttonToLogIn)
         loginButton.setOnClickListener {
             val intent = Intent(this, LogInActivity::class.java)

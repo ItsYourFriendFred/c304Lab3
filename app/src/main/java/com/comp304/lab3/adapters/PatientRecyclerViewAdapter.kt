@@ -37,6 +37,9 @@ internal class PatientRecyclerViewAdapter(
                 patient.room.toString()
             ))
 
+            // Set onClick listener on the CardView to handle item clicks
+            // When card is clicked, callback invoked with the clicked patient
+            // Lambda function is defined in the activity where it's passed to this RecyclerViewAdapter
             cardView.setOnClickListener {
                 onItemClick(patient)
             }

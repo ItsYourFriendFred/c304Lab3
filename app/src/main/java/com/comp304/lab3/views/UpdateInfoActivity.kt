@@ -61,6 +61,7 @@ class UpdateInfoActivity : AppCompatActivity() {
 
         setupSpinners()
 
+        // Retrieving patient information passed from the selected card item from the Main activity's RecyclerView through Intents
         val patientId = intent.getIntExtra(PATIENT_ID_KEY, -1)
         val firstName = intent.getStringExtra(PATIENT_FIRSTNAME_KEY)
         val lastName = intent.getStringExtra(PATIENT_LASTNAME_KEY)
@@ -68,6 +69,7 @@ class UpdateInfoActivity : AppCompatActivity() {
         val nurseId = intent.getIntExtra(PATIENT_NURSE_ID_KEY, currentNurseId)
         val roomNumber = intent.getIntExtra(PATIENT_ROOM_KEY, -1)
 
+        // Obtaining references to the UI components
         val editTextFirstName: EditText = findViewById(R.id.editTextFirstName)
         val editTextLastName: EditText = findViewById(R.id.editTextLastName)
         val editTextNurseId: EditText = findViewById(R.id.editTextNurseId)
@@ -76,6 +78,7 @@ class UpdateInfoActivity : AppCompatActivity() {
         val buttonSave: Button = findViewById(R.id.buttonSavePatientInfo)
         val buttonViewTests: Button = findViewById(R.id.buttonViewTests)
 
+        // Setting the form UI components to the existing patient's information
         editTextFirstName.setText(firstName)
         editTextLastName.setText(lastName)
         editTextNurseId.setText(nurseId.toString())
@@ -84,10 +87,10 @@ class UpdateInfoActivity : AppCompatActivity() {
 
 
         buttonSave.setOnClickListener {
-            // Handle save logic
             savePatientInfo(patientId)
         }
 
+        // View test button listener also passes patient ID for use in ViewTestInfo activity for retrieving all the patient's tests
         buttonViewTests.setOnClickListener {
             val intent = Intent(this, ViewTestInfoActivity::class.java).apply {
                 putExtra(Constants.PATIENT_ID_KEY, patientId)
@@ -97,6 +100,7 @@ class UpdateInfoActivity : AppCompatActivity() {
 
     }
 
+    // Populate the spinners with their relevant string arrays from /res files
     private fun setupSpinners() {
         val departments = resources.getStringArray(R.array.department_array)
         val rooms = resources.getStringArray(R.array.room_array)
@@ -110,6 +114,7 @@ class UpdateInfoActivity : AppCompatActivity() {
         findViewById<Spinner>(R.id.spinnerRoomNumber).adapter = roomAdapter
     }
 
+    // Save any changes to the patient's info
     private fun savePatientInfo(patientId: Int) {
         val updatedFirstName = findViewById<EditText>(R.id.editTextFirstName).text.toString()
         val updatedLastName = findViewById<EditText>(R.id.editTextLastName).text.toString()
@@ -117,6 +122,7 @@ class UpdateInfoActivity : AppCompatActivity() {
         val selectedDepartment = findViewById<Spinner>(R.id.spinnerDepartment).selectedItem.toString()
         val selectedRoomNumber = findViewById<Spinner>(R.id.spinnerRoomNumber).selectedItem.toString().toInt()
 
+        // Creating a PatientDetails object from the filled in form fields
         val patientDetails = PatientDetails(
             patientId = patientId,
             firstname = updatedFirstName,
@@ -126,6 +132,7 @@ class UpdateInfoActivity : AppCompatActivity() {
             room = selectedRoomNumber
         )
 
+        // Form validation
         viewModel.updateUiState(patientDetails)
 
         if (!viewModel.patientUiState.isEntryValid) {
@@ -133,6 +140,7 @@ class UpdateInfoActivity : AppCompatActivity() {
             return
         }
 
+        // Also, navigate to previous Main activity if successful in saving patient info
         lifecycleScope.launch {
             try {
                 viewModel.updatePatient()
